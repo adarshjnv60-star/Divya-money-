@@ -1,0 +1,2877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divya Money - Premium Financial Platform</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --primary: #1A237E;
+            --secondary: #283593;
+            --accent: #5C6BC0;
+            --accent-light: #7986CB;
+            --accent-dark: #3949AB;
+            --accent-gradient: linear-gradient(135deg, #5C6BC0 0%, #3949AB 100%);
+            --gold: #FFD700;
+            --gold-light: #FFE55C;
+            --gold-dark: #D4AF37;
+            --gold-gradient: linear-gradient(135deg, #FFD700 0%, #D4AF37 100%);
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --info: #3B82F6;
+            --white: #FFFFFF;
+            --light: #F8FAFC;
+            --gray-light: #E2E8F0;
+            --gray: #94A3B8;
+            --gray-dark: #64748B;
+            --dark: #1E293B;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
+            --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.15);
+            --diwali-orange: #FF6B35;
+            --diwali-yellow: #FFD166;
+            --diwali-red: #EF476F;
+            --diwali-green: #06D6A0;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--dark);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            min-height: 100vh;
+            position: relative;
+            background-color: var(--white);
+            overflow: hidden;
+        }
+
+        /* Diwali Theme Background */
+        .diwali-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(239, 71, 111, 0.05) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
+            z-index: -1;
+        }
+
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px 2px var(--diwali-yellow);
+            animation: firework 3s infinite;
+        }
+
+        @keyframes firework {
+            0% { transform: translateY(100vh); opacity: 1; }
+            100% { transform: translateY(-100px); opacity: 0; }
+        }
+
+        /* Login Container - WIDER and SHORTER */
+        .login-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 10px;
+            position: relative;
+        }
+
+        .login-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1604878557307-83b228637707?w=600&h=800&fit=crop') center/cover;
+            opacity: 0.05;
+            z-index: -1;
+        }
+
+        .luxury-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 18px;
+            box-shadow: var(--shadow-xl);
+            padding: 20px 15px;
+            text-align: center;
+            width: 100%;
+            max-width: 100%;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(15px);
+            min-height: auto;
+        }
+
+        .luxury-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gold-gradient);
+        }
+
+        .premium-logo {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 15px;
+            background: var(--gold-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+            border: 3px solid white;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .logo-icon {
+            font-size: 28px;
+            color: var(--white);
+        }
+
+        .luxury-title {
+            font-size: 24px;
+            font-weight: 900;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .luxury-subtitle {
+            font-size: 13px;
+            color: var(--gray-dark);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .luxury-input {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--white);
+            border: 2px solid var(--gray-light);
+            border-radius: 12px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .luxury-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(92, 107, 192, 0.1);
+        }
+
+        .luxury-btn {
+            background: var(--accent-gradient);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 5px 15px rgba(92, 107, 192, 0.3);
+            letter-spacing: 0.5px;
+            margin-top: 5px;
+        }
+
+        .luxury-btn:active {
+            transform: scale(0.98);
+        }
+
+        .gold-btn {
+            background: var(--gold-gradient);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .otp-display-container {
+            background: linear-gradient(135deg, #283593 0%, #1A237E 100%);
+            border-radius: 14px;
+            padding: 16px;
+            margin: 20px 0;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        .otp-display {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            color: var(--gold-light);
+            margin: 10px 0;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .otp-timer {
+            color: var(--gray);
+            font-size: 12px;
+            margin-top: 8px;
+            font-weight: 600;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 12px;
+            margin-top: 6px;
+            display: none;
+            align-items: center;
+            gap: 6px;
+            background: rgba(231, 76, 60, 0.1);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .login-footer {
+            margin-top: 20px;
+            color: var(--gray);
+            font-size: 11px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        /* Diwali Special Offers - COMPACT */
+        .diwali-offer {
+            background: linear-gradient(135deg, var(--diwali-orange) 0%, var(--diwali-yellow) 100%);
+            color: white;
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .diwali-offer::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translate(50%, 50%) scale(1); opacity: 0; }
+        }
+
+        .diwali-title {
+            font-size: 15px;
+            font-weight: 900;
+            margin-bottom: 4px;
+        }
+
+        .diwali-subtitle {
+            font-size: 12px;
+            margin-bottom: 8px;
+            opacity: 0.9;
+        }
+
+        .diwali-discount {
+            font-size: 28px;
+            font-weight: 900;
+            margin-bottom: 6px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Success Animation */
+        .success-check {
+            width: 50px;
+            height: 50px;
+            background: var(--success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: white;
+            font-size: 20px;
+            animation: bounce 0.6s ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 60%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            80% { transform: translateY(-5px); }
+        }
+
+        /* Loading Animation */
+        .loading-dots {
+            display: inline-flex;
+            gap: 4px;
+        }
+
+        .loading-dots div {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--white);
+            animation: loading 1.4s infinite ease-in-out;
+        }
+
+        .loading-dots div:nth-child(1) { animation-delay: -0.32s; }
+        .loading-dots div:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes loading {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        /* App Container */
+        .app-container {
+            display: none;
+            background: var(--white);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-light);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 18px;
+            color: var(--accent);
+        }
+
+        .logo-icon {
+            width: 35px;
+            height: 35px;
+            background: var(--accent-gradient);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .header-btn {
+            width: 38px;
+            height: 38px;
+            background: var(--light);
+            border: 1px solid var(--gray-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-dark);
+            transition: all 0.3s ease;
+        }
+
+        .header-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Carousel */
+        .carousel {
+            height: 180px;
+            position: relative;
+            overflow: hidden;
+            background: var(--primary);
+            border-radius: 0 0 20px 20px;
+        }
+
+        .carousel-inner {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .carousel-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(26, 35, 126, 0.9));
+        }
+
+        .carousel-title {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 5px;
+            color: var(--white);
+        }
+
+        .carousel-subtitle {
+            font-size: 12px;
+            color: var(--gray-light);
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--white);
+            width: 20px;
+            border-radius: 6px;
+        }
+
+        /* Dashboard Stats */
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            padding: 15px;
+        }
+
+        .dashboard-stat {
+            background: var(--white);
+            border: 1px solid var(--gray-light);
+            border-radius: 14px;
+            padding: 16px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .stat-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--accent-gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: white;
+            margin: 0 auto 10px;
+        }
+
+        .stat-main {
+            font-size: 20px;
+            font-weight: 900;
+            margin-bottom: 4px;
+            color: var(--secondary);
+        }
+
+        .stat-sub {
+            font-size: 11px;
+            color: var(--gray-dark);
+        }
+
+        /* Investment Portfolio */
+        .portfolio-section {
+            padding: 15px;
+        }
+
+        .portfolio-card {
+            background: var(--white);
+            border: 1px solid var(--gray-light);
+            border-radius: 14px;
+            padding: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .portfolio-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .portfolio-title {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--secondary);
+        }
+
+        .portfolio-value {
+            font-size: 20px;
+            font-weight: 900;
+            color: var(--accent);
+        }
+
+        .portfolio-chart {
+            height: 80px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+            border-radius: 8px;
+            margin: 12px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chart-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background: rgba(255,255,255,0.2);
+            border-radius: 8px 8px 0 0;
+        }
+
+        /* Real-time Market Data */
+        .market-data {
+            padding: 15px;
+        }
+
+        .market-ticker {
+            background: var(--white);
+            border: 1px solid var(--gray-light);
+            border-radius: 14px;
+            padding: 12px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .ticker-container {
+            display: flex;
+            animation: ticker 30s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .ticker-item {
+            display: flex;
+            align-items: center;
+            margin-right: 25px;
+            white-space: nowrap;
+        }
+
+        .ticker-symbol {
+            font-weight: 800;
+            margin-right: 6px;
+            color: var(--secondary);
+            font-size: 12px;
+        }
+
+        .ticker-price {
+            font-weight: 700;
+            margin-right: 4px;
+            font-size: 12px;
+        }
+
+        .ticker-change {
+            font-weight: 700;
+            font-size: 10px;
+        }
+
+        .positive-change {
+            color: var(--success);
+        }
+
+        .negative-change {
+            color: var(--danger);
+        }
+
+        /* AI Financial Advisor */
+        .ai-advisor {
+            padding: 15px;
+        }
+
+        .advisor-card {
+            background: var(--white);
+            border: 1px solid var(--gray-light);
+            border-radius: 14px;
+            padding: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .advisor-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .advisor-avatar {
+            width: 45px;
+            height: 45px;
+            background: var(--accent-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: white;
+        }
+
+        .advisor-info {
+            flex: 1;
+        }
+
+        .advisor-name {
+            font-weight: 800;
+            font-size: 14px;
+            color: var(--secondary);
+        }
+
+        .advisor-role {
+            font-size: 11px;
+            color: var(--gray-dark);
+        }
+
+        .advisor-message {
+            background: var(--light);
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 12px;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .advisor-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            padding: 18px;
+        }
+
+        .action-card {
+            background: var(--white);
+            border: 1px solid var(--gray-light);
+            border-radius: 12px;
+            padding: 14px 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .action-card:active {
+            transform: scale(0.95);
+        }
+
+        .action-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: white;
+            margin-bottom: 8px;
+            box-shadow: 0 3px 10px rgba(92, 107, 192, 0.3);
+        }
+
+        .action-text {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            background: var(--light);
+            border: 1px solid var(--gray-light);
+            border-radius: 10px;
+            padding: 3px;
+            margin: 0 20px 15px;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 12px;
+            border-radius: 8px;
+            color: var(--gray-dark);
+            transition: all 0.3s ease;
+        }
+
+        .tab.active {
+            background: var(--white);
+            color: var(--accent);
+            box-shadow: var(--shadow);
+        }
+
+        /* Plans */
+        .plans-container {
+            padding: 0 20px 20px;
+        }
+
+        .plan-card {
+            background: var(--white);
+            border: 1px solid var(--gray-light);
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 12px;
+            box-shadow: var(--shadow);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .plan-card:active {
+            transform: scale(0.98);
+        }
+
+        .plan-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent-gradient);
+        }
+
+        .plan-header {
+            padding: 20px;
+            position: relative;
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        .plan-title {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 5px;
+            color: var(--secondary);
+        }
+
+        .plan-price {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--accent);
+            margin-bottom: 3px;
+        }
+
+        .plan-subtitle {
+            font-size: 12px;
+            color: var(--gray-dark);
+        }
+
+        .plan-features {
+            padding: 0 20px 20px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .feature-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .feature-label {
+            color: var(--gray-dark);
+            font-size: 11px;
+        }
+
+        .feature-value {
+            font-weight: 700;
+            font-size: 11px;
+            color: var(--secondary);
+        }
+
+        .buy-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--accent-gradient);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: 800;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 5px 12px rgba(92, 107, 192, 0.3);
+        }
+
+        .buy-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            border-top: 1px solid var(--gray-light);
+            display: flex;
+            padding: 10px 0;
+            max-width: 100%;
+            margin: 0 auto;
+            z-index: 1000;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.05);
+        }
+
+        .nav-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item.active {
+            color: var(--accent);
+        }
+
+        .nav-icon {
+            font-size: 18px;
+            margin-bottom: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item.active .nav-icon {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .nav-text {
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .nav-item.active .nav-text {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Screens */
+        .screen {
+            display: none;
+            min-height: 100vh;
+            padding-bottom: 70px;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        /* Profile Screen */
+        .profile-hero {
+            background: var(--primary);
+            padding: 25px 20px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .profile-avatar {
+            width: 70px;
+            height: 70px;
+            background: var(--accent-gradient);
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            border: 3px solid white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .user-name {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .user-id {
+            font-size: 13px;
+            color: var(--gray-light);
+            margin-bottom: 10px;
+        }
+
+        .vip-badge {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            padding: 4px 14px;
+            border-radius: 16px;
+            font-size: 11px;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            padding: 15px;
+            margin-top: -20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-card {
+            background: var(--white);
+            border: 1px solid var(--gray-light);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .stat-value {
+            font-size: 16px;
+            font-weight: 900;
+            margin-bottom: 3px;
+            color: var(--secondary);
+        }
+
+        .stat-label {
+            font-size: 10px;
+            color: var(--gray-dark);
+        }
+
+        .menu-list {
+            background: var(--white);
+            border: 1px solid var(--gray-light);
+            border-radius: 14px;
+            margin: 15px;
+            overflow: hidden;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid var(--gray-light);
+            transition: all 0.3s ease;
+        }
+
+        .menu-item:active {
+            background: var(--light);
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .menu-icon {
+            width: 38px;
+            height: 38px;
+            background: var(--light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--accent);
+        }
+
+        .menu-text {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--secondary);
+        }
+
+        /* Share Screen */
+        .card {
+            background: var(--white);
+            border: 1px solid var(--gray-light);
+            border-radius: 14px;
+            padding: 16px;
+            margin: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .referral-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .stat-item {
+            background: rgba(92, 107, 192, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(92, 107, 192, 0.1);
+        }
+
+        .stat-number {
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--accent);
+            margin-bottom: 3px;
+        }
+
+        .stat-desc {
+            font-size: 11px;
+            color: var(--gray-dark);
+        }
+
+        /* Team Screen */
+        .team-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .level-tabs {
+            display: flex;
+            background: var(--light);
+            border-radius: 10px;
+            padding: 4px;
+            margin: 15px 0;
+        }
+
+        .level-tab {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .level-tab.active {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Transaction History */
+        .transaction-history {
+            margin: 15px;
+        }
+        
+        .transaction-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .transaction-details {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .transaction-icon {
+            width: 38px;
+            height: 38px;
+            background: var(--light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--accent);
+        }
+        
+        .transaction-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .transaction-title {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--secondary);
+        }
+        
+        .transaction-date {
+            font-size: 11px;
+            color: var(--gray);
+        }
+        
+        .transaction-amount {
+            font-weight: 800;
+            font-size: 14px;
+        }
+        
+        .positive {
+            color: var(--success);
+        }
+        
+        .negative {
+            color: #e74c3c;
+        }
+
+        /* Earning Features */
+        .earning-features {
+            padding: 15px;
+        }
+        
+        .feature-grid-large {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .earning-card {
+            background: var(--white);
+            border: 1px solid var(--gray-light);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        
+        .earning-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: white;
+            margin: 0 auto 10px;
+        }
+        
+        .earning-title {
+            font-weight: 700;
+            font-size: 13px;
+            margin-bottom: 5px;
+            color: var(--secondary);
+        }
+        
+        .earning-amount {
+            font-weight: 900;
+            font-size: 16px;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        
+        .earning-btn {
+            background: var(--accent-gradient);
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            width: 100%;
+        }
+
+        /* Investment Required Message */
+        .investment-message {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 10px;
+            padding: 12px 15px;
+            margin: 10px 15px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--gray-dark);
+        }
+        
+        .investment-message strong {
+            color: var(--accent);
+        }
+
+        /* Floating Action Button */
+        .floating-action-btn {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 55px;
+            height: 55px;
+            background: var(--accent-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 22px;
+            box-shadow: 0 5px 15px rgba(92, 107, 192, 0.4);
+            z-index: 350;
+            animation: pulse 2s infinite;
+        }
+
+        /* Popup Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 20px;
+            display: none;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            max-width: 320px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: modalAppear 0.3s ease-out;
+        }
+
+        @keyframes modalAppear {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gold-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 28px;
+            color: white;
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        .modal-text {
+            color: var(--gray-dark);
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .modal-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-btn-primary {
+            background: var(--accent-gradient);
+            color: white;
+            box-shadow: 0 5px 15px rgba(92, 107, 192, 0.3);
+        }
+
+        .modal-btn-secondary {
+            background: var(--light);
+            color: var(--gray-dark);
+            border: 1px solid var(--gray-light);
+        }
+
+        .modal-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Support Modal */
+        .support-modal-content {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            max-width: 350px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: modalAppear 0.3s ease-out;
+        }
+
+        .support-input {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--white);
+            border: 2px solid var(--gray-light);
+            border-radius: 12px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            margin-bottom: 15px;
+        }
+
+        .support-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(92, 107, 192, 0.1);
+        }
+
+        .support-textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--white);
+            border: 2px solid var(--gray-light);
+            border-radius: 12px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            margin-bottom: 20px;
+            min-height: 120px;
+            resize: vertical;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .support-textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(92, 107, 192, 0.1);
+        }
+
+        /* Responsive Improvements */
+        @media (max-width: 380px) {
+            .login-container {
+                padding: 8px;
+            }
+            
+            .luxury-card {
+                padding: 18px 12px;
+            }
+            
+            .premium-logo {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 12px;
+            }
+            
+            .logo-icon {
+                font-size: 24px;
+            }
+            
+            .luxury-title {
+                font-size: 22px;
+            }
+            
+            .luxury-subtitle {
+                font-size: 12px;
+                margin-bottom: 16px;
+            }
+            
+            .diwali-title {
+                font-size: 14px;
+            }
+            
+            .diwali-discount {
+                font-size: 24px;
+            }
+            
+            .login-footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Diwali Background -->
+    <div class="diwali-background" id="diwaliBackground"></div>
+
+    <!-- Investment Required Modal -->
+    <div class="modal-overlay" id="planModal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <i class="fas fa-crown"></i>
+            </div>
+            <h2 class="modal-title">Investment Required</h2>
+            <p class="modal-text">You need to purchase a plan first to access this feature. Invest now to unlock all premium features!</p>
+            <div class="modal-actions">
+                <button class="modal-btn modal-btn-secondary" onclick="closeModal()">Later</button>
+                <button class="modal-btn modal-btn-primary" onclick="showScreen('homeScreen'); closeModal();">Buy Plan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Support Modal -->
+    <div class="modal-overlay" id="supportModal">
+        <div class="support-modal-content">
+            <div class="modal-icon">
+                <i class="fas fa-headset"></i>
+            </div>
+            <h2 class="modal-title">Contact Support</h2>
+            <p class="modal-text">Please describe your issue below and our team will get back to you soon.</p>
+            
+            <input type="text" class="support-input" id="supportName" placeholder="Your Name">
+            <textarea class="support-textarea" id="supportMessage" placeholder="Describe your problem..."></textarea>
+            
+            <div class="modal-actions">
+                <button class="modal-btn modal-btn-secondary" onclick="closeSupportModal()">Cancel</button>
+                <button class="modal-btn modal-btn-primary" onclick="sendSupportMessage()">Send Message</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Login Container -->
+        <div class="login-container" id="loginContainer">
+            <div class="login-background"></div>
+            <div class="luxury-card">
+                <!-- Phone Number Page -->
+                <div id="phonePage">
+                    <div class="premium-logo">
+                        <!-- Divya Money Logo -->
+                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgJqPyMh-xj5TI_CECXMKDqlo-P7Tivdryeh9kg7l7Ian5s41_9C5Y6Hr4tUew00G1CEiOZBaCe5yX-UU-HjSBqUmXBmfSCGMoc4oXBVlqmtZEyj1KufR1j4UqlWqJE8mQJWqE0dvbdLsQ2flbhmRKJvfyioptyp1-yM1zvGmQbBeNIhqNnnCxLrf1pwQE=s404" alt="Divya Money Logo" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                    </div>
+                    <h1 class="luxury-title">Divya Money</h1>
+                    <p class="luxury-subtitle">Premium Financial & Investment Platform</p>
+                    
+                    <!-- Diwali Special Offer -->
+                    <div class="diwali-offer">
+                        <div class="diwali-title">Diwali Special Offer!</div>
+                        <div class="diwali-subtitle">Light up your financial future</div>
+                        <div class="diwali-discount">51% OFF</div>
+                        <div class="diwali-subtitle">on all investment plans</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label class="input-label" for="phone">
+                            <i class="fas fa-mobile-alt"></i>
+                            Phone Number
+                        </label>
+                        <input type="tel" id="phone" class="luxury-input" placeholder="Enter 10-digit number" maxlength="10" inputmode="numeric">
+                        <div class="error-message" id="phoneError">
+                            <i class="fas fa-exclamation-circle"></i>
+                            Please enter valid 10-digit number
+                        </div>
+                    </div>
+                    
+                    <button class="luxury-btn" id="generateOtpBtn">
+                        <i class="fas fa-shield-alt"></i> Generate OTP
+                    </button>
+                    
+                    <div class="login-footer">
+                        <div style="display: flex; align-items: center; gap: 6px; color: var(--success);">
+                            <i class="fas fa-lock"></i>
+                            <span style="font-size: 11px;">Secure & Encrypted</span>
+                        </div>
+                        <span style="font-size: 11px;">By continuing, you agree to Terms</span>
+                    </div>
+                </div>
+                
+                <!-- OTP Verification Page -->
+                <div id="otpPage" style="display: none;">
+                    <div class="premium-logo">
+                        <i class="fas fa-lock logo-icon"></i>
+                    </div>
+                    <h1 class="luxury-title">Verify OTP</h1>
+                    <p class="luxury-subtitle">Enter code sent to your phone</p>
+                    
+                    <div class="otp-display-container">
+                        <div style="color: var(--gray-light); font-size: 12px; margin-bottom: 6px;">Your OTP Code</div>
+                        <div class="otp-display" id="otpDisplay">------</div>
+                        <div class="otp-timer" id="otpTimer">Valid for: 10:00</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label class="input-label" for="otpInput">
+                            <i class="fas fa-key"></i>
+                            Enter OTP
+                        </label>
+                        <input type="text" id="otpInput" class="luxury-input" placeholder="Enter 6-digit OTP" maxlength="6" inputmode="numeric">
+                        <div class="error-message" id="otpError">
+                            <i class="fas fa-exclamation-circle"></i>
+                            Please enter correct OTP
+                        </div>
+                    </div>
+                    
+                    <button class="luxury-btn gold-btn" id="loginBtn">
+                        <i class="fas fa-sign-in-alt"></i> Login to App
+                    </button>
+                    
+                    <div class="login-footer">
+                        <button onclick="resendOTP()" style="background: none; border: none; color: var(--accent); font-size: 12px; font-weight: 700;">
+                            <i class="fas fa-redo"></i> Resend OTP
+                        </button>
+                        <span style="font-size: 11px;">Didn't receive code?</span>
+                    </div>
+                </div>
+
+                <!-- Success Page -->
+                <div id="successPage" style="display: none; text-align: center;">
+                    <div class="success-check">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h1 class="luxury-title">Welcome!</h1>
+                    <p class="luxury-subtitle">Login Successful</p>
+                    <p style="color: var(--gray-dark); margin: 15px 0;">Redirecting to Divya Money...</p>
+                    <div class="loading-dots">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- App Container -->
+        <div class="app-container" id="appContainer">
+            <!-- Home Screen -->
+            <div class="screen active" id="homeScreen">
+                <div class="header">
+                    <div class="header-content">
+                        <div class="logo">
+                            <!-- Divya Money Logo in Header -->
+                            <div class="logo-icon">
+                                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgJqPyMh-xj5TI_CECXMKDqlo-P7Tivdryeh9kg7l7Ian5s41_9C5Y6Hr4tUew00G1CEiOZBaCe5yX-UU-HjSBqUmXBmfSCGMoc4oXBVlqmtZEyj1KufR1j4UqlWqJE8mQJWqE0dvbdLsQ2flbhmRKJvfyioptyp1-yM1zvGmQbBeNIhqNnnCxLrf1pwQE=s404" alt="Divya Money Logo" style="width: 100%; height: 100%; border-radius: 8px; object-fit: cover;">
+                            </div>
+                            Divya Money
+                        </div>
+                        <div class="header-actions">
+                            <div class="header-btn" onclick="showNotifications()">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div class="header-btn" onclick="showSettings()">
+                                <i class="fas fa-cog"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel">
+                    <div class="carousel-inner" id="carouselInner">
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop" alt="Financial Growth" class="carousel-image">
+                            <div class="carousel-content">
+                                <div class="carousel-title">Diwali Special - 51% OFF!</div>
+                                <div class="carousel-subtitle">Light up your financial future with exclusive Diwali offers</div>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="VIP Membership" class="carousel-image">
+                            <div class="carousel-content">
+                                <div class="carousel-title">Up to 5000% ROI</div>
+                                <div class="carousel-subtitle">Highest returns in premium financial investment</div>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="Daily Returns" class="carousel-image">
+                            <div class="carousel-content">
+                                <div class="carousel-title">Daily ₹1000+ Earnings</div>
+                                <div class="carousel-subtitle">Multiple income sources activated after investment</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-dots">
+                        <div class="dot active"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+
+                <!-- Diwali Special Offer -->
+                <div class="diwali-offer">
+                    <div class="diwali-title">Diwali Financial Bonanza!</div>
+                    <div class="diwali-subtitle">Special festival discounts on all plans</div>
+                    <div class="diwali-discount">51% OFF</div>
+                    <div class="diwali-subtitle">Limited time offer - Invest now!</div>
+                </div>
+
+                <!-- Dashboard Stats -->
+                <div class="dashboard-stats">
+                    <div class="dashboard-stat">
+                        <div class="stat-icon">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <div class="stat-main">₹0</div>
+                        <div class="stat-sub">Wallet Balance</div>
+                    </div>
+                    <div class="dashboard-stat">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-main">₹0</div>
+                        <div class="stat-sub">Total Income</div>
+                    </div>
+                    <div class="dashboard-stat">
+                        <div class="stat-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <div class="stat-main">₹0</div>
+                        <div class="stat-sub">Daily Earnings</div>
+                    </div>
+                    <div class="dashboard-stat">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-main">0</div>
+                        <div class="stat-sub">Team Members</div>
+                    </div>
+                </div>
+
+                <!-- Investment Portfolio -->
+                <div class="portfolio-section">
+                    <div class="portfolio-card">
+                        <div class="portfolio-header">
+                            <div class="portfolio-title">Investment Portfolio</div>
+                            <div class="portfolio-value">₹0</div>
+                        </div>
+                        <div class="portfolio-chart">
+                            <div class="chart-line"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <div>
+                                <div style="font-size: 11px; color: var(--gray-dark);">Total Invested</div>
+                                <div style="font-weight: 800; font-size: 14px;">₹0</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 11px; color: var(--gray-dark);">Total Returns</div>
+                                <div style="font-weight: 800; font-size: 14px; color: var(--success);">₹0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Real-time Market Data -->
+                <div class="market-data">
+                    <div class="market-ticker">
+                        <div class="ticker-container">
+                            <div class="ticker-item">
+                                <span class="ticker-symbol">NIFTY</span>
+                                <span class="ticker-price">22,450</span>
+                                <span class="ticker-change positive">+1.2%</span>
+                            </div>
+                            <div class="ticker-item">
+                                <span class="ticker-symbol">SENSEX</span>
+                                <span class="ticker-price">74,120</span>
+                                <span class="ticker-change positive">+0.8%</span>
+                            </div>
+                            <div class="ticker-item">
+                                <span class="ticker-symbol">BTC</span>
+                                <span class="ticker-price">₹42,15,000</span>
+                                <span class="ticker-change positive">+3.5%</span>
+                            </div>
+                            <div class="ticker-item">
+                                <span class="ticker-symbol">ETH</span>
+                                <span class="ticker-price">₹2,45,000</span>
+                                <span class="ticker-change negative">-1.2%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Financial Advisor -->
+                <div class="ai-advisor">
+                    <div class="advisor-card">
+                        <div class="advisor-header">
+                            <div class="advisor-avatar">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="advisor-info">
+                                <div class="advisor-name">AI Financial Advisor</div>
+                                <div class="advisor-role">Powered by Machine Learning</div>
+                            </div>
+                        </div>
+                        <div class="advisor-message">
+                            Invest in any plan to unlock personalized investment recommendations powered by artificial intelligence and machine learning algorithms.
+                        </div>
+                        <div class="advisor-actions">
+                            <button class="luxury-btn" onclick="showScreen('plansScreen')" style="padding: 10px; font-size: 12px;">Invest to Unlock</button>
+                            <button class="luxury-btn" onclick="showScreen('plansScreen')" style="padding: 10px; font-size: 12px;">View Plans</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Investment Required Message -->
+                <div class="investment-message">
+                    <i class="fas fa-lock"></i> 
+                    <strong>Investment Required:</strong> Unlock 100+ financial features by investing in any plan below
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <div class="action-card" onclick="openRechargeLink()">
+                        <div class="action-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="action-text">Recharge</div>
+                    </div>
+                    
+                    <div class="action-card" onclick="openWithdrawalLink()">
+                        <div class="action-icon">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <div class="action-text">Withdraw</div>
+                    </div>
+                    
+                    <div class="action-card" onclick="showSupportModal()">
+                        <div class="action-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div class="action-text">Support</div>
+                    </div>
+                    
+                    <div class="action-card" onclick="openTutorialLink()">
+                        <div class="action-icon">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <div class="action-text">Tutorial</div>
+                    </div>
+                </div>
+
+                <!-- Earning Features Grid -->
+                <div class="earning-features">
+                    <div style="font-weight: 800; margin-bottom: 15px; font-size: 16px; text-align: center;">
+                        50+ Earning Ways (Activate After Investment)
+                    </div>
+                    
+                    <div class="feature-grid-large">
+                        <div class="earning-card locked" onclick="showScreen('plansScreen')">
+                            <div class="earning-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="earning-title">Daily Returns</div>
+                            <div class="earning-amount">₹100-1000/day</div>
+                            <button class="earning-btn">Invest to Unlock</button>
+                        </div>
+                        
+                        <div class="earning-card locked" onclick="showScreen('plansScreen')">
+                            <div class="earning-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="earning-title">Team Commission</div>
+                            <div class="earning-amount">₹2000+/day</div>
+                            <button class="earning-btn">Invest to Unlock</button>
+                        </div>
+                        
+                        <div class="earning-card locked" onclick="showScreen('plansScreen')">
+                            <div class="earning-icon">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                            <div class="earning-title">Daily Bonus</div>
+                            <div class="earning-amount">₹101/day</div>
+                            <button class="earning-btn">Invest to Unlock</button>
+                        </div>
+                        
+                        <div class="earning-card locked" onclick="showScreen('plansScreen')">
+                            <div class="earning-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="earning-title">Tasks</div>
+                            <div class="earning-amount">₹400/day</div>
+                            <button class="earning-btn">Invest to Unlock</button>
+                        </div>
+                        
+                        <div class="earning-card locked" onclick="showScreen('plansScreen')">
+                            <div class="earning-icon">
+                                <i class="fas fa-share-alt"></i>
+                            </div>
+                            <div class="earning-title">Referral Bonus</div>
+                            <div class="earning-amount">₹1000 each</div>
+                            <button class="earning-btn">Invest to Unlock</button>
+                        </div>
+                        
+                        <div class="earning-card locked" onclick="showScreen('plansScreen')">
+                            <div class="earning-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="earning-title">Level Income</div>
+                            <div class="earning-amount">₹6000+/month</div>
+                            <button class="earning-btn">Invest to Unlock</button>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 10px;">
+                        <button class="luxury-btn" onclick="showScreen('plansScreen')" style="padding: 12px; font-size: 14px;">
+                            <i class="fas fa-rocket"></i> View All 50+ Earning Ways
+                        </button>
+                    </div>
+                </div>
+
+                <div class="tabs">
+                    <div class="tab active" onclick="setActiveTab('long-income')">Investment Plans</div>
+                    <div class="tab" onclick="setActiveTab('vip-income')">VIP Plans</div>
+                </div>
+
+                <!-- Long Income Plans -->
+                <div class="plans-container" id="longIncomePlans">
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <div class="plan-badge">Diwali Special</div>
+                            <div class="plan-title">Financial Freedom Plan</div>
+                            <div class="plan-price">₹350</div>
+                            <div class="plan-subtitle">Perfect for Beginners</div>
+                        </div>
+                        <div class="plan-features">
+                            <div class="feature-grid">
+                                <div class="feature-item">
+                                    <span class="feature-label">Daily Return</span>
+                                    <span class="feature-value">₹50</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-label">Duration</span>
+                                    <span class="feature-value">60 Days</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-label">Total Return</span>
+                                    <span class="feature-value">₹3,000</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-label">ROI</span>
+                                    <span class="feature-value" style="color: var(--success);">300%</span>
+                                </div>
+                            </div>
+                            <button class="buy-btn" onclick="openPaymentLink()">
+                                <i class="fas fa-shopping-cart"></i> Invest Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <div class="plan-badge">Popular</div>
+                            <div class="plan-title">Wealth Builder Plan</div>
+                            <div class="plan-price">₹1,700</div>
+                            <div class="plan-subtitle">Best Value Package</div>
+                        </div>
+                        <div class="plan-features">
+                            <div class="feature-grid">
+                                <div class="feature-item">
+                                    <span class="feature-label">Daily Return</span>
+                                    <span class="feature-value">₹240</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-label">Duration</span>
+                                    <span class="feature-value">90 Days</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-label">Total Return</span>
+                                    <span class="feature-value">₹21,600</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-label">ROI</span>
+                                    <span class="feature-value" style="color: var(--success);">540%</span>
+                                </div>
+                            </div>
+                            <button class="buy-btn" onclick="openPaymentLink()">
+                                <i class="fas fa-crown"></i> Invest Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <div class="plan-badge">Premium</div>
+                            <div class="plan-title">Millionaire Plan</div>
+                            <div class="plan-price">₹3,500</div>
+                            <div class="plan-subtitle">Premium Returns</div>
+                        </div>
+                        <div class="plan-features">
+                            <div class="feature-grid">
+                                <div class="feature-item">
+                                    <span class="feature-label">Daily Return</span>
+                                    <span class="feature-value">₹700</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-label">Duration</span>
+                                    <span class="feature-value">120 Days</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-label">Total Return</span>
+                                    <span class="feature-value">₹84,000</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-label">ROI</span>
+                                    <span class="feature-value" style="color: var(--success);">840%</span>
+                                </div>
+                            </div>
+                            <button class="buy-btn" onclick="openPaymentLink()">
+                                <i class="fas fa-gem"></i> Invest Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIP Income Plans -->
+                <div class="plans-container" id="vipIncomePlans" style="display: none;">
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <div class="plan-badge">Starter</div>
+                            <div class="plan-title">VIP Platinum</div>
+                            <div class="plan-price">₹2,500</div>
+                            <div class="plan-subtitle">Basic VIP Package</div>
+                        </div>
+                        <div class="plan-features">
+                            <div class="feature-grid">
+                                <div class="feature-item">
+                                    <span class="feature-label">Commission</span>
+                                    <span class="feature-value">35%</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-label">Daily Bonus</span>
+                                    <span class="feature-value">₹100</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-label">Duration</span>
+                                    <span class="feature-value">Lifetime</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-label">ROI</span>
+                                    <span class="feature-value" style="color: var(--success);">2500%</span>
+                                </div>
+                            </div>
+                            <button class="buy-btn" onclick="openPaymentLink()">
+                                <i class="fas fa-star"></i> Get VIP Platinum
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <div class="plan-badge">Professional</div>
+                            <div class="plan-title">VIP Diamond</div>
+                            <div class="plan-price">₹4,500</div>
+                            <div class="plan-subtitle">Pro VIP Package</div>
+                        </div>
+                        <div class="plan-features">
+                            <div class="feature-grid">
+                                <div class="feature-item">
+                                    <span class="feature-label">Commission</span>
+                                    <span class="feature-value">20%</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-label">Daily Bonus</span>
+                                    <span class="feature-value">₹240</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-label">Duration</span>
+                                    <span class="feature-value">Lifetime</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-label">ROI</span>
+                                    <span class="feature-value" style="color: var(--success);">3000%</span>
+                                </div>
+                            </div>
+                            <button class="buy-btn" onclick="openPaymentLink()">
+                                <i class="fas fa-crown"></i> Upgrade to VIP Diamond
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Floating Action Button -->
+                <div class="floating-action-btn" onclick="showScreen('plansScreen')">
+                    <i class="fas fa-bolt"></i>
+                </div>
+            </div>
+
+            <!-- All Earning Ways Screen -->
+            <div class="screen" id="plansScreen">
+                <div class="header">
+                    <div class="header-content">
+                        <div class="header-btn" onclick="showScreen('homeScreen')">
+                            <i class="fas fa-arrow-left"></i>
+                        </div>
+                        <div class="header-title" style="flex: 1; text-align: center;">
+                            <div style="font-weight: 700; font-size: 16px;">All Earning Ways</div>
+                        </div>
+                        <div class="header-btn" onclick="showSettings()">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div style="text-align: center; margin-bottom: 15px;">
+                        <div style="font-size: 20px; font-weight: 800; margin-bottom: 5px;">50+ Earning Features</div>
+                        <div style="color: var(--gray-dark); font-size: 12px;">Unlock all by investing in any plan</div>
+                    </div>
+                    
+                    <div class="investment-message">
+                        <i class="fas fa-lock"></i> 
+                        <strong>Locked:</strong> Invest in any plan to activate all 50+ earning ways
+                    </div>
+                </div>
+
+                <div class="earning-features">
+                    <div class="feature-grid-large">
+                        <div class="earning-card locked" onclick="showScreen('homeScreen')">
+                            <div class="earning-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="earning-title">Daily Plan Returns</div>
+                            <div class="earning-amount">₹100-1700/day</div>
+                            <div class="earning-btn">Invest to Unlock</div>
+                        </div>
+                        
+                        <div class="earning-card locked" onclick="showScreen('homeScreen')">
+                            <div class="earning-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="earning-title">Direct Referral</div>
+                            <div class="earning-amount">₹400-1000 each</div>
+                            <div class="earning-btn">Invest to Unlock</div>
+                        </div>
+                        
+                        <div class="earning-card locked" onclick="showScreen('homeScreen')">
+                            <div class="earning-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <div class="earning-title">Team Commission</div>
+                            <div class="earning-amount">₹2000+/day</div>
+                            <div class="earning-btn">Invest to Unlock</div>
+                        </div>
+                        
+                        <div class="earning-card locked" onclick="showScreen('homeScreen')">
+                            <div class="earning-icon">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                            <div class="earning-title">Daily Login Bonus</div>
+                            <div class="earning-amount">₹101/day</div>
+                            <div class="earning-btn">Invest to Unlock</div>
+                        </div>
+                        
+                        <div class="earning-card locked" onclick="showScreen('homeScreen')">
+                            <div class="earning-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="earning-title">Daily Tasks</div>
+                            <div class="earning-amount">₹400/day</div>
+                            <div class="earning-btn">Invest to Unlock</div>
+                        </div>
+                        
+                        <div class="earning-card locked" onclick="showScreen('homeScreen')">
+                            <div class="earning-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="earning-title">Level Income</div>
+                            <div class="earning-amount">₹6000+/month</div>
+                            <div class="earning-btn">Invest to Unlock</div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 20px;">
+                        <button class="luxury-btn gold-btn" onclick="showScreen('homeScreen')" style="padding: 12px; font-size: 14px;">
+                            <i class="fas fa-arrow-left"></i> Back to Investment Plans
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Share Screen -->
+            <div class="screen" id="shareScreen">
+                <div class="header">
+                    <div class="header-content">
+                        <div class="header-btn" onclick="showScreen('homeScreen')">
+                            <i class="fas fa-arrow-left"></i>
+                        </div>
+                        <div class="header-title" style="flex: 1; text-align: center;">
+                            <div style="font-weight: 700; font-size: 16px;">Share & Earn</div>
+                        </div>
+                        <div class="header-btn" onclick="shareApp()">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div style="text-align: center; margin-bottom: 15px;">
+                        <div style="font-size: 20px; font-weight: 800; margin-bottom: 5px;">Referral Program</div>
+                        <div style="color: var(--gray-dark); font-size: 12px;">Earn commissions from referrals</div>
+                    </div>
+                    
+                    <div class="referral-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">35%</div>
+                            <div class="stat-desc">Level 1 Commission</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">5%</div>
+                            <div class="stat-desc">Level 2 Commission</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">3%</div>
+                            <div class="stat-desc">Level 3 Commission</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">₹0</div>
+                            <div class="stat-desc">Total Earnings</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div style="font-weight: 700; margin-bottom: 10px; font-size: 14px;">Your Referral Link</div>
+                    <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+                        <input type="text" value="https://divyamoney360.blogspot.com/2025/10/divya-money-premium-financial-platform_93.html?m=1" readonly 
+                               style="flex: 1; padding: 12px; background: var(--light); border: 1px solid var(--gray-light); border-radius: 8px; font-size: 11px;">
+                        <button onclick="copyToClipboard('https://divyamoney360.blogspot.com/2025/10/divya-money-premium-financial-platform_93.html?m=1')" 
+                                style="background: var(--accent-gradient); border: none; padding: 12px 15px; border-radius: 8px; color: white;">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    
+                    <div style="font-weight: 700; margin-bottom: 10px; font-size: 14px;">Your Referral Code</div>
+                    <div style="display: flex; gap: 8px;">
+                        <input type="text" value="DM8PEA4" readonly 
+                               style="flex: 1; padding: 12px; background: var(--light); border: 1px solid var(--gray-light); border-radius: 8px; font-size: 13px; text-align: center; font-weight: 800;">
+                        <button onclick="copyToClipboard('DM8PEA4')" 
+                                style="background: var(--accent-gradient); border: none; padding: 12px 15px; border-radius: 8px; color: white;">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div style="padding: 15px;">
+                    <button onclick="shareApp()" 
+                            style="width: 100%; padding: 16px; background: var(--accent-gradient); border: none; border-radius: 12px; color: white; font-weight: 800; font-size: 14px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                        <i class="fas fa-share"></i> Share with Friends
+                    </button>
+                </div>
+            </div>
+
+            <!-- Team Screen -->
+            <div class="screen" id="teamScreen">
+                <div class="header">
+                    <div class="header-content">
+                        <div class="header-btn" onclick="showScreen('homeScreen')">
+                            <i class="fas fa-arrow-left"></i>
+                        </div>
+                        <div class="header-title" style="flex: 1; text-align: center;">
+                            <div style="font-weight: 700; font-size: 16px;">My Team</div>
+                        </div>
+                        <div class="header-btn" onclick="showTeamStats()">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div style="text-align: center; margin-bottom: 15px;">
+                        <div style="font-size: 20px; font-weight: 800; margin-bottom: 5px;">Team Overview</div>
+                        <div style="color: var(--gray-dark); font-size: 12px;">Your network performance</div>
+                    </div>
+                    
+                    <div class="team-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">0</div>
+                            <div class="stat-desc">Total Members</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">₹0</div>
+                            <div class="stat-desc">Team Revenue</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">₹0</div>
+                            <div class="stat-desc">Your Commission</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">0</div>
+                            <div class="stat-desc">Active Members</div>
+                        </div>
+                    </div>
+
+                    <div class="level-tabs">
+                        <div class="level-tab active">Level 1</div>
+                        <div class="level-tab">Level 2</div>
+                        <div class="level-tab">Level 3</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div style="text-align: center; padding: 40px 20px;">
+                        <div style="font-size: 48px; margin-bottom: 15px; opacity: 0.5;">👥</div>
+                        <div style="font-size: 16px; font-weight: 800; margin-bottom: 8px; color: var(--gray-dark);">No Team Members Yet</div>
+                        <div style="color: var(--gray-dark); margin-bottom: 20px; font-size: 12px;">Start inviting friends to build your network</div>
+                        <button onclick="showScreen('shareScreen')" 
+                                style="background: var(--accent-gradient); border: none; padding: 12px 24px; border-radius: 10px; color: white; font-weight: 700; font-size: 13px;">
+                            <i class="fas fa-user-plus"></i> Invite Friends
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Screen -->
+            <div class="screen" id="profileScreen">
+                <div class="header">
+                    <div class="header-content">
+                        <div class="header-btn" onclick="showScreen('homeScreen')">
+                            <i class="fas fa-arrow-left"></i>
+                        </div>
+                        <div class="header-title" style="flex: 1; text-align: center;">
+                            <div style="font-weight: 700; font-size: 16px;">My Profile</div>
+                        </div>
+                        <div class="header-btn" onclick="showSettings()">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-hero">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-name" id="profileName">User</div>
+                    <div class="user-id" id="profilePhone">ID: -----------</div>
+                    <div class="vip-badge">
+                        <i class="fas fa-crown"></i> REGULAR MEMBER
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">₹0</div>
+                        <div class="stat-label">Wallet Balance</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">₹0</div>
+                        <div class="stat-label">Total Income</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">Team Size</div>
+                    </div>
+                </div>
+
+                <!-- Transaction History -->
+                <div class="transaction-history">
+                    <div style="font-weight: 800; margin-bottom: 15px; font-size: 16px;">Recent Transactions</div>
+                    
+                    <div class="transaction-item">
+                        <div class="transaction-details">
+                            <div class="transaction-icon">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                            <div class="transaction-info">
+                                <div class="transaction-title">Wallet Recharge</div>
+                                <div class="transaction-date">Today, 10:30 AM</div>
+                            </div>
+                        </div>
+                        <div class="transaction-amount positive">+₹0</div>
+                    </div>
+                    
+                    <div class="transaction-item">
+                        <div class="transaction-details">
+                            <div class="transaction-icon">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                            <div class="transaction-info">
+                                <div class="transaction-title">Daily Bonus</div>
+                                <div class="transaction-date">Yesterday, 9:15 AM</div>
+                            </div>
+                        </div>
+                        <div class="transaction-amount positive">+₹0</div>
+                    </div>
+                    
+                    <div class="transaction-item">
+                        <div class="transaction-details">
+                            <div class="transaction-icon">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <div class="transaction-info">
+                                <div class="transaction-title">Withdrawal</div>
+                                <div class="transaction-date">2 days ago</div>
+                            </div>
+                        </div>
+                        <div class="transaction-amount negative">-₹0</div>
+                    </div>
+                    
+                    <div class="transaction-item">
+                        <div class="transaction-details">
+                            <div class="transaction-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="transaction-info">
+                                <div class="transaction-title">Investment Return</div>
+                                <div class="transaction-date">3 days ago</div>
+                            </div>
+                        </div>
+                        <div class="transaction-amount positive">+₹0</div>
+                    </div>
+                </div>
+
+                <div class="menu-list">
+                    <div class="menu-item" onclick="showPlanDetails()">
+                        <div class="menu-left">
+                            <div class="menu-icon">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                            <div class="menu-text">Plan Details</div>
+                        </div>
+                        <div><i class="fas fa-chevron-right" style="color: var(--gray);"></i></div>
+                    </div>
+                    <div class="menu-item" onclick="showIncomeDetails()">
+                        <div class="menu-left">
+                            <div class="menu-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="menu-text">Income Details</div>
+                        </div>
+                        <div><i class="fas fa-chevron-right" style="color: var(--gray);"></i></div>
+                    </div>
+                    <div class="menu-item" onclick="showWithdrawalHistory()">
+                        <div class="menu-left">
+                            <div class="menu-icon">
+                                <i class="fas fa-history"></i>
+                            </div>
+                            <div class="menu-text">Withdrawal History</div>
+                        </div>
+                        <div><i class="fas fa-chevron-right" style="color: var(--gray);"></i></div>
+                    </div>
+                    <div class="menu-item" onclick="openWhatsAppChannel()">
+                        <div class="menu-left">
+                            <div class="menu-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="menu-text">WhatsApp Support</div>
+                        </div>
+                        <div><i class="fas fa-chevron-right" style="color: var(--gray);"></i></div>
+                    </div>
+                </div>
+
+                <div style="padding: 15px;">
+                    <button class="luxury-btn" onclick="openRechargeLink()" style="margin-bottom: 10px; padding: 12px; font-size: 14px;">
+                        <i class="fas fa-bolt"></i> Recharge Wallet
+                    </button>
+                    <button class="luxury-btn gold-btn" onclick="openWithdrawalLink()" style="margin-bottom: 10px; padding: 12px; font-size: 14px;">
+                        <i class="fas fa-wallet"></i> Withdraw Funds
+                    </button>
+                    <button style="width: 100%; padding: 14px; background: var(--white); border: 1px solid var(--gray-light); border-radius: 12px; color: var(--gray-dark); font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px;" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i> Sign Out
+                    </button>
+                </div>
+            </div>
+
+            <!-- Bottom Navigation -->
+            <div class="bottom-nav">
+                <div class="nav-item active" onclick="showScreen('homeScreen')">
+                    <div class="nav-icon"><i class="fas fa-home"></i></div>
+                    <div class="nav-text">Home</div>
+                </div>
+                <div class="nav-item" onclick="showScreen('plansScreen')">
+                    <div class="nav-icon"><i class="fas fa-coins"></i></div>
+                    <div class="nav-text">Earn</div>
+                </div>
+                <div class="nav-item" onclick="showScreen('shareScreen')">
+                    <div class="nav-icon"><i class="fas fa-share-alt"></i></div>
+                    <div class="nav-text">Share</div>
+                </div>
+                <div class="nav-item" onclick="showScreen('teamScreen')">
+                    <div class="nav-icon"><i class="fas fa-users"></i></div>
+                    <div class="nav-text">Team</div>
+                </div>
+                <div class="nav-item" onclick="showScreen('profileScreen')">
+                    <div class="nav-icon"><i class="fas fa-user"></i></div>
+                    <div class="nav-text">Profile</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // OTP Login State
+        let generatedOtp = '';
+        let currentPhone = '';
+        let otpTimer;
+        let timeLeft = 600;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            const phonePage = document.getElementById('phonePage');
+            const otpPage = document.getElementById('otpPage');
+            const successPage = document.getElementById('successPage');
+            const generateOtpBtn = document.getElementById('generateOtpBtn');
+            const loginBtn = document.getElementById('loginBtn');
+            const phoneInput = document.getElementById('phone');
+            const otpInput = document.getElementById('otpInput');
+            const otpDisplay = document.getElementById('otpDisplay');
+            const phoneError = document.getElementById('phoneError');
+            const otpError = document.getElementById('otpError');
+            const otpTimerElement = document.getElementById('otpTimer');
+            
+            // Create Diwali fireworks
+            createFireworks();
+            
+            // Generate random 6-digit OTP
+            function generateOTP() {
+                return Math.floor(100000 + Math.random() * 900000).toString();
+            }
+            
+            // Validate phone number
+            function validatePhone(phone) {
+                return /^\d{10}$/.test(phone);
+            }
+            
+            // Start OTP timer
+            function startOTPTimer() {
+                timeLeft = 600;
+                updateTimerDisplay();
+                
+                otpTimer = setInterval(function() {
+                    timeLeft--;
+                    updateTimerDisplay();
+                    
+                    if (timeLeft <= 0) {
+                        clearInterval(otpTimer);
+                        showError(otpError, 'OTP expired. Generate new one.');
+                    }
+                }, 1000);
+            }
+            
+            // Update timer display
+            function updateTimerDisplay() {
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                otpTimerElement.textContent = `Valid for: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                
+                if (timeLeft < 120) {
+                    otpTimerElement.style.color = '#e74c3c';
+                }
+            }
+            
+            // Show error message
+            function showError(errorElement, message) {
+                errorElement.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${message}`;
+                errorElement.style.display = 'flex';
+            }
+            
+            // Hide error message
+            function hideError(errorElement) {
+                errorElement.style.display = 'none';
+            }
+            
+            // Generate OTP button click
+            generateOtpBtn.addEventListener('click', function() {
+                const phone = phoneInput.value.trim();
+                
+                if (!validatePhone(phone)) {
+                    showError(phoneError, 'Please enter valid 10-digit number');
+                    phoneInput.style.borderColor = '#e74c3c';
+                    return;
+                }
+                
+                hideError(phoneError);
+                phoneInput.style.borderColor = 'var(--success)';
+                
+                // Store phone number
+                currentPhone = phone;
+                
+                // Generate and display OTP
+                generatedOtp = generateOTP();
+                otpDisplay.textContent = generatedOtp;
+                
+                // Start timer
+                startOTPTimer();
+                
+                // Show OTP page
+                phonePage.style.display = 'none';
+                otpPage.style.display = 'block';
+                
+                // Update profile
+                document.getElementById('profilePhone').textContent = 'ID: ' + phone;
+                document.getElementById('profileName').textContent = 'User ' + phone.slice(-4);
+            });
+            
+            // Login button click
+            loginBtn.addEventListener('click', function() {
+                const enteredOtp = otpInput.value.trim();
+                
+                if (enteredOtp !== generatedOtp) {
+                    showError(otpError, 'Please enter correct OTP');
+                    otpInput.style.borderColor = '#e74c3c';
+                    return;
+                }
+                
+                hideError(otpError);
+                otpInput.style.borderColor = 'var(--success)';
+                
+                // Clear timer
+                clearInterval(otpTimer);
+                
+                // Show loading state
+                loginBtn.innerHTML = '<div class="loading-dots"><div></div><div></div><div></div></div>';
+                
+                // Show success page
+                setTimeout(() => {
+                    otpPage.style.display = 'none';
+                    successPage.style.display = 'block';
+                    
+                    // Show Divya Money app after success animation
+                    setTimeout(() => {
+                        document.getElementById('loginContainer').style.display = 'none';
+                        document.getElementById('appContainer').style.display = 'block';
+                        
+                        // Start carousel
+                        startCarousel();
+                    }, 2000);
+                }, 1000);
+            });
+            
+            // Input validation
+            phoneInput.addEventListener('input', function() {
+                if (validatePhone(this.value.trim())) {
+                    this.style.borderColor = 'var(--success)';
+                    hideError(phoneError);
+                } else {
+                    this.style.borderColor = 'var(--gray-light)';
+                }
+            });
+            
+            otpInput.addEventListener('input', function() {
+                if (this.value.trim() === generatedOtp) {
+                    this.style.borderColor = 'var(--success)';
+                    hideError(otpError);
+                } else {
+                    this.style.borderColor = 'var(--gray-light)';
+                }
+            });
+        });
+
+        // Create Diwali fireworks
+        function createFireworks() {
+            const background = document.getElementById('diwaliBackground');
+            const colors = ['#FFD700', '#FF6B35', '#EF476F', '#06D6A0', '#118AB2'];
+            
+            for (let i = 0; i < 20; i++) {
+                const firework = document.createElement('div');
+                firework.className = 'firework';
+                firework.style.left = Math.random() * 100 + '%';
+                firework.style.animationDelay = Math.random() * 3 + 's';
+                firework.style.background = colors[Math.floor(Math.random() * colors.length)];
+                background.appendChild(firework);
+            }
+        }
+
+        // Resend OTP function
+        function resendOTP() {
+            generatedOtp = Math.floor(100000 + Math.random() * 900000).toString();
+            document.getElementById('otpDisplay').textContent = generatedOtp;
+            
+            clearInterval(otpTimer);
+            startOTPTimer();
+            
+            // Visual feedback
+            const resendBtn = event.target;
+            const originalHTML = resendBtn.innerHTML;
+            resendBtn.innerHTML = '<i class="fas fa-check"></i> Sent';
+            resendBtn.style.color = 'var(--success)';
+            setTimeout(() => {
+                resendBtn.innerHTML = originalHTML;
+                resendBtn.style.color = 'var(--accent)';
+            }, 2000);
+        }
+
+        // Divya Money App Functions
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.classList.remove('active');
+            });
+            document.getElementById(screenId).classList.add('active');
+            
+            // Update bottom nav
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            if (screenId === 'plansScreen') {
+                document.querySelectorAll('.nav-item')[1].classList.add('active');
+            } else if (screenId === 'homeScreen') {
+                document.querySelectorAll('.nav-item')[0].classList.add('active');
+            } else if (screenId === 'shareScreen') {
+                document.querySelectorAll('.nav-item')[2].classList.add('active');
+            } else if (screenId === 'teamScreen') {
+                document.querySelectorAll('.nav-item')[3].classList.add('active');
+            } else if (screenId === 'profileScreen') {
+                document.querySelectorAll('.nav-item')[4].classList.add('active');
+            }
+        }
+
+        // Carousel functionality
+        let currentSlide = 0;
+        function startCarousel() {
+            const carouselInner = document.getElementById('carouselInner');
+            const dots = document.querySelectorAll('.dot');
+            
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % 3;
+                if (carouselInner) {
+                    carouselInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === currentSlide);
+                    });
+                }
+            }, 4000);
+        }
+
+        // Tab Management
+        function setActiveTab(tab) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if (tab === 'long-income') {
+                document.getElementById('longIncomePlans').style.display = 'block';
+                document.getElementById('vipIncomePlans').style.display = 'none';
+            } else if (tab === 'vip-income') {
+                document.getElementById('longIncomePlans').style.display = 'none';
+                document.getElementById('vipIncomePlans').style.display = 'block';
+            }
+        }
+
+        // External Link Functions
+        function openRechargeLink() {
+            window.open('https://divyamoney360.blogspot.com/2025/10/payment-deposit-box-margin-0-padding-0_19.html?m=1', '_blank');
+        }
+
+        function openWithdrawalLink() {
+            window.open('https://vhffhdddh.blogspot.com/2025/10/professional-withdrawal-request-margin_32.html?m=1', '_blank');
+        }
+
+        function openPaymentLink() {
+            window.open('https://www.xampress.site/2025/09/premium-secure-premium-payment-your_25.html?m=1', '_blank');
+        }
+
+        function openTutorialLink() {
+            window.open('https://www.youtube.com/@tuntaxi', '_blank');
+        }
+
+        function openWhatsAppChannel() {
+            window.open('https://chat.whatsapp.com/EAZfnHhlUve82w0tx9i4dE?mode=ems_copy_t', '_blank');
+        }
+
+        // Popup Modal Functions
+        function showPlanDetails() {
+            document.getElementById('planModal').style.display = 'flex';
+        }
+
+        function showIncomeDetails() {
+            document.getElementById('planModal').style.display = 'flex';
+        }
+
+        function showWithdrawalHistory() {
+            document.getElementById('planModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('planModal').style.display = 'none';
+        }
+
+        function showSupportModal() {
+            document.getElementById('supportModal').style.display = 'flex';
+        }
+
+        function closeSupportModal() {
+            document.getElementById('supportModal').style.display = 'none';
+        }
+
+        function sendSupportMessage() {
+            const name = document.getElementById('supportName').value;
+            const message = document.getElementById('supportMessage').value;
+            
+            if (!name || !message) {
+                alert('Please fill in both your name and the problem description.');
+                return;
+            }
+            
+            // In a real app, you would send this data to a server
+            alert('Thank you, ' + name + '! Your message has been sent to our support team. We will get back to you soon.');
+            closeSupportModal();
+            
+            // Clear the form
+            document.getElementById('supportName').value = '';
+            document.getElementById('supportMessage').value = '';
+        }
+
+        // Utility Functions
+        function showNotifications() {
+            alert('No new notifications');
+        }
+
+        function showSettings() {
+            alert('Settings panel');
+        }
+
+        function showTeamStats() {
+            alert('Team statistics');
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text);
+            alert('Copied to clipboard: ' + text);
+        }
+
+        function shareApp() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Divya Money - Premium Financial Platform',
+                    text: 'Join Divya Money and start earning today!',
+                    url: 'https://divyamoney.com'
+                });
+            } else {
+                copyToClipboard('https://divyamoney360.blogspot.com/2025/10/divya-money-premium-financial-platform_93.html?m=1');
+            }
+        }
+
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                document.getElementById('appContainer').style.display = 'none';
+                document.getElementById('loginContainer').style.display = 'flex';
+                
+                // Reset login form
+                document.getElementById('phonePage').style.display = 'block';
+                document.getElementById('otpPage').style.display = 'none';
+                document.getElementById('successPage').style.display = 'none';
+                document.getElementById('phone').value = '';
+                document.getElementById('otpInput').value = '';
+            }
+        }
+    </script>
+</body>
+</html>
